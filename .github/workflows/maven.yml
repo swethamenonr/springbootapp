@@ -47,7 +47,6 @@ jobs:
      
           script: |
             docker pull swethamenonr/springbootimage:latest
-            docker run -p 8080:8080 swethamenonr/springbootimage
             
  
   

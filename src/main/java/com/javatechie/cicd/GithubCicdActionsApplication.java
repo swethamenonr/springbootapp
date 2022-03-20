@@ -11,7 +11,7 @@ public class GithubCicdActionsApplication {
 
 	@GetMapping("/welcome")
 	public String welcome(){
-		return "It works -testing auto deploy !";
+		return "It works !";
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(GithubCicdActionsApplication.class, args);
