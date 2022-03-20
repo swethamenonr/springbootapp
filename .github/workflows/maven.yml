@@ -8,11 +8,8 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-stages:
-  - buildi
-  - deployi
+
 jobs:
-  stage: buildi
   build:
 
     runs-on: ubuntu-latest
@@ -37,7 +34,7 @@ jobs:
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-  stage: deployi
+
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -47,9 +44,10 @@ jobs:
           host: ${{secrets.DO}} # IP address of the server you wish to ssh into
           password: ${{secrets.DO_PASSWORD}} # Private or public key of the server
           username: ${{ secrets.DO_USERNAME }} # User of the server you want to ssh into
-     
+
           script: |
             docker pull swethamenonr/springbootimage:latest
+            
             
  
   
