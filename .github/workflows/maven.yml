@@ -8,8 +8,11 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+stages:
+  - buildi
+  - deployi
 jobs:
+  stage: buildi
   build:
 
     runs-on: ubuntu-latest
@@ -34,7 +37,7 @@ jobs:
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        
+  stage: deployi
   deploy:
     runs-on: ubuntu-latest
     steps:
